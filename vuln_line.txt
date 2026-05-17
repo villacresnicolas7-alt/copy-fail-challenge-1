@@ -1,0 +1,3 @@
+	aead_request_set_crypt(&areq->cra_u.aead_req, rsgl_src,
+			       areq->first_rsgl.sgl.sgt.sgl, used, ctx->iv);
+	aead_request_set_ad(&areq->cra_u.aead_req, ctx->aead_assoclen);

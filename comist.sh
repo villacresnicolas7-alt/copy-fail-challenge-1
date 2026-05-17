@@ -4,3 +4,4 @@
 #commmit 3
 #hito 2 El error "make: *** No rule to make target 'install'. Stop." ocurrió porque el comando "make install" se ejecutó sin haber generado previamente los archivos necesarios con "make". Se solucionó ejecutando "make" antes de "make install", lo que permitió que el proceso de instalación se completara correctamente.
 #hito 3 El error "make: *** No rule to make target 'install'. Stop." ocurrió nuevamente porque el comando "make install" se ejecutó sin haber generado previamente los archivos necesarios con "make". Se solucionó ejecutando "make" antes de "make install", lo que permitió que el proceso de instalación se completara correctamente.
+#final commit
