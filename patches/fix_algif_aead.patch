@@ -1,0 +1,40 @@
+diff --git a/crypto/algif_aead.c b/crypto/algif_aead.c
+index 7d58cbbce..c703cfde6 100644
+--- a/crypto/algif_aead.c
++++ b/crypto/algif_aead.c
+@@ -210,7 +210,7 @@ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
+ 	 */
+ 
+ 	/* Use the RX SGL as source (and destination) for crypto op. */
+-	rsgl_src = areq->first_rsgl.sgl.sgt.sgl;
++	rsgl_src = areq->tsgl;
+ 
+ 	if (ctx->enc) {
+ 		/*
+@@ -224,7 +224,7 @@ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
+ 		 * RX SGL: AAD || PT || Tag
+ 		 */
+ 		err = crypto_aead_copy_sgl(null_tfm, tsgl_src,
+-					   areq->first_rsgl.sgl.sgt.sgl,
++					   areq->tsgl,
+ 					   processed);
+ 		if (err)
+ 			goto free;
+@@ -243,7 +243,7 @@ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
+ 
+ 		 /* Copy AAD || CT to RX SGL buffer for in-place operation. */
+ 		err = crypto_aead_copy_sgl(null_tfm, tsgl_src,
+-					   areq->first_rsgl.sgl.sgt.sgl,
++					   areq->tsgl,
+ 					   outlen);
+ 		if (err)
+ 			goto free;
+@@ -280,7 +280,7 @@ static int _aead_recvmsg(struct socket *sock, struct msghdr *msg,
+ 
+ 	/* Initialize the crypto operation */
+ 	aead_request_set_crypt(&areq->cra_u.aead_req, rsgl_src,
+-			       areq->first_rsgl.sgl.sgt.sgl, used, ctx->iv);
++			       areq->tsgl, used, ctx->iv);
+ 	aead_request_set_ad(&areq->cra_u.aead_req, ctx->aead_assoclen);
+ 	aead_request_set_tfm(&areq->cra_u.aead_req, tfm);
+ 
