@@ -1,0 +1,1 @@
+Exploit ejecutado correctamente; shell root sin TTY visible (NULL argv).
