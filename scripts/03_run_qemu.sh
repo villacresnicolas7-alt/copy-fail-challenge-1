@@ -47,7 +47,7 @@ exec qemu-system-x86_64 \
   -no-reboot \
   -kernel "$BZIMAGE" \
   -initrd "$INITRAMFS" \
-  -append "console=ttyS0 quiet STUDENT_ID=${STUDENT_ID}" \
+  -append "console=ttyS0 STUDENT_ID=${STUDENT_ID}" \
   -m 512M \
   -smp "$(nproc)" \
   -enable-kvm 2>/dev/null || \
@@ -56,6 +56,6 @@ qemu-system-x86_64 \
   -no-reboot \
   -kernel "$BZIMAGE" \
   -initrd "$INITRAMFS" \
-  -append "console=ttyS0 quiet STUDENT_ID=${STUDENT_ID}" \
+  -append "console=ttyS0 STUDENT_ID=${STUDENT_ID}" \
   -m 512M \
   -smp 2
