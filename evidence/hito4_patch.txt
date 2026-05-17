@@ -1,0 +1,6 @@
+=== HITO 4: PATCH PERMANENTE ===
+Exploit ejecutado post-patch
+Resultado: FileNotFoundError
+Usuario final: uid=1001(student)
+Patch aplicado en crypto/algif_aead.c
+Estado: FIX VALIDADO
