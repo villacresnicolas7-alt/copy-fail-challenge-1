@@ -1,0 +1,2 @@
+Mitigacion temporal: rmmod algif_aead authencesn authenc
+Resultado: exploit falla con FileNotFoundError cuando modulos descargados
