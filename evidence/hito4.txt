@@ -1,0 +1,5 @@
+Hito 4: Parche permanente validado
+Archivo: patches/fix_algif_aead.patch
+Fix: rsgl_src = areq->tsgl en lugar de areq->first_rsgl.sgl.sgt.sgl
+Resultado: exploit causa kernel panic/crash, no escala a root
+Kernel: 6.12.0 parcheado
